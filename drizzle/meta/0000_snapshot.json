@@ -1,0 +1,649 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "chat": {
+      "name": "chat",
+      "columns": {
+        "message_id": {
+          "autoincrement": true,
+          "name": "message_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sender_id": {
+          "autoincrement": false,
+          "name": "sender_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receiver_id": {
+          "autoincrement": false,
+          "name": "receiver_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "message": {
+          "autoincrement": false,
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sent_at": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "sent_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "chat_message_id": {
+          "name": "chat_message_id",
+          "columns": [
+            "message_id"
+          ]
+        }
+      },
+      "indexes": {
+        "receiver_id": {
+          "name": "receiver_id",
+          "columns": [
+            "receiver_id"
+          ],
+          "isUnique": false
+        },
+        "sender_id": {
+          "name": "sender_id",
+          "columns": [
+            "sender_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "chat_ibfk_1": {
+          "name": "chat_ibfk_1",
+          "tableFrom": "chat",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "sender_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "chat_ibfk_2": {
+          "name": "chat_ibfk_2",
+          "tableFrom": "chat",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "receiver_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "feedback": {
+      "name": "feedback",
+      "columns": {
+        "feedback_id": {
+          "autoincrement": true,
+          "name": "feedback_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_id": {
+          "autoincrement": false,
+          "name": "user_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "message": {
+          "autoincrement": false,
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "feedback_feedback_id": {
+          "name": "feedback_feedback_id",
+          "columns": [
+            "feedback_id"
+          ]
+        }
+      },
+      "indexes": {
+        "user_id": {
+          "name": "user_id",
+          "columns": [
+            "user_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "feedback_ibfk_1": {
+          "name": "feedback_ibfk_1",
+          "tableFrom": "feedback",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "matches": {
+      "name": "matches",
+      "columns": {
+        "match_id": {
+          "autoincrement": true,
+          "name": "match_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user1_id": {
+          "autoincrement": false,
+          "name": "user1_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user2_id": {
+          "autoincrement": false,
+          "name": "user2_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_id": {
+          "autoincrement": false,
+          "name": "skill_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": "'Pending'",
+          "autoincrement": false,
+          "name": "status",
+          "type": "enum('Pending','Accepted','Rejected')",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "matched_at": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "matched_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "matches_match_id": {
+          "name": "matches_match_id",
+          "columns": [
+            "match_id"
+          ]
+        }
+      },
+      "indexes": {
+        "skill_id": {
+          "name": "skill_id",
+          "columns": [
+            "skill_id"
+          ],
+          "isUnique": false
+        },
+        "user1_id": {
+          "name": "user1_id",
+          "columns": [
+            "user1_id"
+          ],
+          "isUnique": false
+        },
+        "user2_id": {
+          "name": "user2_id",
+          "columns": [
+            "user2_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "matches_ibfk_1": {
+          "name": "matches_ibfk_1",
+          "tableFrom": "matches",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "user1_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "matches_ibfk_2": {
+          "name": "matches_ibfk_2",
+          "tableFrom": "matches",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "user2_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "matches_ibfk_3": {
+          "name": "matches_ibfk_3",
+          "tableFrom": "matches",
+          "tableTo": "skills",
+          "columnsFrom": [
+            "skill_id"
+          ],
+          "columnsTo": [
+            "skill_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "skills": {
+      "name": "skills",
+      "columns": {
+        "skill_id": {
+          "autoincrement": true,
+          "name": "skill_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_name": {
+          "autoincrement": false,
+          "name": "skill_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "autoincrement": false,
+          "name": "category",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "skills_skill_id": {
+          "name": "skills_skill_id",
+          "columns": [
+            "skill_id"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "skill_name": {
+          "name": "skill_name",
+          "columns": [
+            "skill_name"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "userdata": {
+      "name": "userdata",
+      "columns": {
+        "user_id": {
+          "autoincrement": true,
+          "name": "user_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password_hash": {
+          "autoincrement": false,
+          "name": "password_hash",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bio": {
+          "autoincrement": false,
+          "name": "bio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "location": {
+          "autoincrement": false,
+          "name": "location",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "userdata_user_id": {
+          "name": "userdata_user_id",
+          "columns": [
+            "user_id"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "email": {
+          "name": "email",
+          "columns": [
+            "email"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "userskills": {
+      "name": "userskills",
+      "columns": {
+        "user_skill_id": {
+          "autoincrement": true,
+          "name": "user_skill_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_id": {
+          "autoincrement": false,
+          "name": "user_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_id": {
+          "autoincrement": false,
+          "name": "skill_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "proficiency": {
+          "autoincrement": false,
+          "name": "proficiency",
+          "type": "enum('Beginner','Intermediate','Advanced')",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "userskills_user_skill_id": {
+          "name": "userskills_user_skill_id",
+          "columns": [
+            "user_skill_id"
+          ]
+        }
+      },
+      "indexes": {
+        "skill_id": {
+          "name": "skill_id",
+          "columns": [
+            "skill_id"
+          ],
+          "isUnique": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "columns": [
+            "user_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "userskills_ibfk_1": {
+          "name": "userskills_ibfk_1",
+          "tableFrom": "userskills",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "userskills_ibfk_2": {
+          "name": "userskills_ibfk_2",
+          "tableFrom": "userskills",
+          "tableTo": "skills",
+          "columnsFrom": [
+            "skill_id"
+          ],
+          "columnsTo": [
+            "skill_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "videocall": {
+      "name": "videocall",
+      "columns": {
+        "call_id": {
+          "autoincrement": true,
+          "name": "call_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "caller_id": {
+          "autoincrement": false,
+          "name": "caller_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receiver_id": {
+          "autoincrement": false,
+          "name": "receiver_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "start_time": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "start_time",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "end_time": {
+          "autoincrement": false,
+          "name": "end_time",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "call_status": {
+          "default": "'Ongoing'",
+          "autoincrement": false,
+          "name": "call_status",
+          "type": "enum('Ongoing','Completed','Missed')",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "videocall_call_id": {
+          "name": "videocall_call_id",
+          "columns": [
+            "call_id"
+          ]
+        }
+      },
+      "indexes": {
+        "caller_id": {
+          "name": "caller_id",
+          "columns": [
+            "caller_id"
+          ],
+          "isUnique": false
+        },
+        "receiver_id": {
+          "name": "receiver_id",
+          "columns": [
+            "receiver_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "videocall_ibfk_1": {
+          "name": "videocall_ibfk_1",
+          "tableFrom": "videocall",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "caller_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "videocall_ibfk_2": {
+          "name": "videocall_ibfk_2",
+          "tableFrom": "videocall",
+          "tableTo": "userdata",
+          "columnsFrom": [
+            "receiver_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {
+      "chat": {
+        "columns": {
+          "sent_at": {
+            "isDefaultAnExpression": true
+          }
+        }
+      },
+      "feedback": {
+        "columns": {
+          "created_at": {
+            "isDefaultAnExpression": true
+          }
+        }
+      },
+      "matches": {
+        "columns": {
+          "matched_at": {
+            "isDefaultAnExpression": true
+          }
+        }
+      },
+      "userdata": {
+        "columns": {
+          "created_at": {
+            "isDefaultAnExpression": true
+          }
+        }
+      },
+      "videocall": {
+        "columns": {
+          "start_time": {
+            "isDefaultAnExpression": true
+          }
+        }
+      }
+    },
+    "indexes": {}
+  }
+}

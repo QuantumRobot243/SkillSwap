@@ -1,0 +1,414 @@
+/* Base styles */
+
+body {
+    font-family: Arial, sans-serif; /* Set the default font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #ffffff; /* Set background color to white */
+}
+
+/* Navbar */
+.navbar {
+    background-color: white; /* Set navbar background color */
+    padding: 1rem; /* Add padding to navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to navbar */
+}
+
+.container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+    max-width: 1200px; /* Set maximum width */
+    margin: auto; /* Center container */
+}
+
+.nav-links {
+    list-style: none; /* Remove list bullets */
+    display: flex; /* Use flexbox for layout */
+    gap: 30px; /* Space out items */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set link color */
+    font-weight: bold; /* Make links bold */
+}
+
+.nav-links a::after {
+    content: ""; /* Add empty content after links */
+    display: block; /* Make it a block element */
+    width: 0; /* Initial width */
+    height: 3px; /* Height of the underline */
+    background: #292d30; /* Underline color */
+    transition: width 0.4s; /* Smooth transition for width */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+.icons span,
+.signup-btn {
+    margin-left: 10px; /* Add margin to the left */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.icons {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-items: center; /* Center items horizontally */
+    gap: 23px; /* Space out items */
+}
+
+.icons span i {
+    font-size: 20px; /* Set icon size */
+    color: #242528e9; /* Set icon color */
+}
+
+.signup-btn:hover {
+    background-color: #2563eb; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transition: background-color 0.5s, color 0.1s; /* Smooth transition */
+}
+
+.signup-btn {
+    background-color: #ffffff; /* Set background color */
+    color: rgb(5, 0, 0); /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Round corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.dark-mode-btn {
+    background-color: #ffffff; /* Set background color */
+    color: rgb(5, 0, 0); /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Round corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center; /* Center text */
+    padding: 50px 20px; /* Add padding */
+    background-color: #ffffff; /* Set background color */
+    color: rgb(0, 0, 0); /* Set text color */
+}
+
+.hero h1 {
+    font-size: 55px; /* Set font size */
+    font-weight: 800; /* Make text bold */
+    margin-bottom: 20px; /* Add margin below */
+}
+
+.hero-btn {
+    background-color: #2563eb; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    margin-top: 10px; /* Add margin above */
+    padding: 15px 30px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 18px; /* Set font size */
+    border-radius: 5px; /* Round corners */
+}
+
+.hero-btn:hover {
+    background-color: #1e4ab4; /* Change background color on hover */
+    transition-duration: 0.5s; /* Smooth transition */
+}
+
+/* Categories */
+.categories {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center items */
+    gap: 40px; /* Space out items */
+    padding: 20px; /* Add padding */
+    background-color: #fff; /* Set background color */
+}
+
+.category {
+    text-align: center; /* Center text */
+    transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+}
+
+.category:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.category span i {
+    font-size: 25px; /* Set icon size */
+    color: #000000; /* Set icon color */
+}
+.play-music, .languages, .coding {
+    border: none; /* Remove border */
+    background-color: #fff; /* Set background color */
+}
+
+/* Testimonials */
+.testimonials {
+    text-align: center; /* Center text */
+    padding: 40px; /* Add padding */
+    background-color: #f1f1f1; /* Set background color */
+}
+
+.testimonial-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+    gap: 20px; /* Space out items */
+}
+
+.testimonial {
+    background: white; /* Set background color */
+    padding: 20px; /* Add padding */
+    border-radius: 8px; /* Round corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.learn-btn {
+    background-color: #007bff; /* Set background color */
+    color: white; /* Set text color */
+    margin-top: 10px; /* Add margin above */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Round corners */
+}
+
+/* --------------------------------------------------- */
+
+.container {
+    padding: 10px 5%;
+    display: flex; 
+    justify-content: space-between; 
+
+}
+
+.contributors{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;     
+}
+
+.contributors img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.5s; /* Smooth transform transition */
+}
+
+.contributors img:hover{
+    transform: translateY(-7px); /* Move up on hover */ 
+    width: 53px;
+    height: 53px;   
+}
+
+.contact-left {
+    flex-basis: 35%;
+}
+
+.contact-right {
+    width: 60%;
+    /* box-sizing: border-box; Include padding and border in the element's total width and height */
+}
+
+.contact-left p {
+    font-size: 18px; /* Set font size */
+    font-weight: 300; /* Set font weight */
+    margin-top: 30px; /* Add margin above */
+    color: #434343; /* Set text color */
+}
+
+.contact-left p i {
+    color: #007bff; /* Set icon color */
+    margin-right: 10px; /* Add margin to the right */
+    font-size: 25px; /* Set font size */
+}
+
+.social-icons {
+    display: flex; /* Use flexbox for layout */
+    margin-top: 30px; /* Add margin above */
+}
+
+.social-icons a {
+    text-decoration: none; /* Remove underline from links */
+    color: #767676; /* Set link color */
+    font-size: 40px; /* Set font size */
+    margin-right: 40px; /* Add margin to the right */
+    display: inline-block; /* Display as inline-block */
+    transition: transform 0.5s; /* Smooth transform transition */
+}
+
+.social-icons a:hover {
+    color: #1e4ab4; /* Change color on hover */
+    transform: translateY(-5px); /* Move up on hover */
+}
+
+.submit-btn{
+    display: block;
+    margin: 30px auto;
+    width: fit-content;
+    border: 1px solid #434343;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #3d3a3a;
+    transition: background 0.5s;
+  }
+  .submit-btn:hover{
+    background: #2563eb;
+    color: #fff;
+  }
+
+.contact-right form {
+    width: 100%; /* Set width */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.contact-right form input,
+.contact-right form textarea {
+    width: 100%; /* Set width */
+    padding: 15px; /* Add padding */
+    margin-top: 20px; /* Add margin above */
+    border: 0; /* Remove border */
+    outline: none; /* Remove outline */
+    background: #c3c3c3; /* Set background color */
+    color: #000000; /* Set text color */
+    font-size: 15px; /* Set font size */
+    border-radius: 6px; /* Round corners */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+
+body.dark-mode .dark-mode-btn {
+    background-color: #333333; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+
+body.dark-mode .navbar {
+    background-color: #1e1e1e; /* Set background color */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Add shadow */
+}
+
+body.dark-mode .nav-links a {
+    color: #ffffff; /* Set link color */
+}
+
+body.dark-mode .nav-links a::after {
+    background: #ffffff; /* Set underline color */
+}
+
+body.dark-mode .icons span i {
+    color: #ffffff; /* Set icon color */
+}
+
+body.dark-mode .signup-btn {
+    background-color: #333333; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+
+body.dark-mode .signup-btn:hover {
+    background-color: #555555; /* Change background color on hover */
+}
+
+body.dark-mode .hero {
+    background-color: #1e1e1e; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+
+body.dark-mode .hero-btn {
+    background-color: #333333; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+
+body.dark-mode .categories {
+    background-color: #1e1e1e; /* Set background color */
+}
+
+body.dark-mode .category span i {
+    color: #ffffff; /* Set icon color */
+}
+
+body.dark-mode .testimonials {
+    background-color: #1e1e1e; /* Set background color */
+}
+
+body.dark-mode .testimonial {
+    background-color: #333333; /* Set background color */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Add shadow */
+}
+
+body.dark-mode .learn-btn {
+    background-color: #333333; /* Set background color */
+    color: #ffffff; /* Set text color */
+}
+body.dark-mode .play-music, 
+body.dark-mode .languages, 
+body.dark-mode .coding {
+    background-color: #1e1e1e; /* Set background color for dark mode */
+    color: #ffffff; /* Set text color for dark mode */
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Space out items */
+    }
+
+    .hero h1 {
+        font-size: 40px; /* Set font size */
+    }
+
+    .hero-btn {
+        font-size: 16px; /* Set font size */
+        padding: 10px 20px; /* Add padding */
+    }
+
+    .categories {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Space out items */
+    }
+
+    .testimonial-grid {
+        flex-direction: column; /* Stack items vertically */
+    }
+}
+
+@media (max-width: 780px) {
+    .hero h1 {
+        font-size: 30px; /* Set font size */
+    }
+
+    .hero-btn {
+        font-size: 14px; /* Set font size */
+        padding: 8px 16px; /* Add padding */
+    }
+
+    .categories {
+        gap: 10px; /* Space out items */
+    }
+
+    .testimonial {
+        padding: 15px; /* Add padding */
+    }
+
+    .learn-btn {
+        font-size: 14px; /* Set font size */
+        padding: 8px 16px; /* Add padding */
+    }
+}

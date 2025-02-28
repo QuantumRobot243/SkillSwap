@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <title>SkillSwap</title>
+</head>
+  
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h1 class="logo">◆ SkillSwap</h1>
+          
+          <!-- Icons and Buttons -->
+          <div class="icons">
+            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-regular fa-comment"></i></span>
+            <span><i class="fa-regular fa-user"></i></span>
+            <button class="signup-btn"
+            onclick="window.location.href='/frontend/login/login.html'">Login</button>
+            <button class="dark-mode-btn">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <br />
+       <!-- Hero Section -->
+    <header class="hero">
+        <h1>Learn. Teach. Grow Together.</h1>
+        <button class="hero-btn">Get Started</button>
+      </header>
+  
+      <!-- Categories Section -->
+      <section class="categories">
+        <div class="category">
+          <button
+            class="languages"
+            onclick="window.location.href='/languages/languages.html'"
+          >
+          <span><i class="fa-solid fa-earth-americas"></i></span>
+        </button>
+        <p>Languages</p>
+      </div>
+      <div class="category">
+        <button
+          class="coding"
+          onclick="window.location.href='/coding/coding.html'"
+        >
+          <span><i class="fa-solid fa-code"></i></span>
+        </button>
+        <p>Coding</p>
+      </div>
+      <div class="category">
+        <button
+        class="play-music"
+        onclick="window.location.href='/frontend/music/music.html'"
+      >
+        <span><i class="fa-solid fa-headphones"></i></span>
+      </button>
+      <p>Music</p>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What SkillSwap provides you</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"A supportive community of like-minded individuals."</p>
+      </div>
+      <div class="testimonial">
+        <p>"Web calling feature"</p>
+      </div>
+      <div class="testimonial">
+        <p>"Relaxing musics that soothes the mind."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+   <div class="container">
+    <div class="contact-left">
+      <h1 class="sub-title">Contact Us</h1>
+      <p>
+        We are a team of developers who are passionate about creating
+        websites and web applications. We are always open to feedback
+        and suggestions. Feel free to reach out to us.
+      </p>
+      <div class="contributors">
+        <a href="https://www.linkedin.com/in/tiasha-biswas/"><img class="dp" src="./images/tiasha.jpg" height="50px" width="50px" alt=""></a>
+        <a href="https://www.linkedin.com/in/samiran-pal/"><img class="dp" src="./images/samiran.png" height="50px" width="50px" alt=""></a>
+        <a href=""><img class="dp" src="./images/shan.png" height="50px" width="50px" alt=""></a>
+        <a href=""><img class="dp" src="./images/shan.png" height="50px" width="50px" alt=""></a>
+        <a href="https://www.linkedin.com/in/romi-singh-275a73350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "><img class="dp" src="./images/romi.jpg" height="50px" width="50px" alt=""></a>
+       
+      </div>
+      <!-- Social media --->
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/samiran-pal/"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="https://www.instagram.com/kabil_5am/"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://github.com/samiranpal2004"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </div>
+      <!-- <a href="my-cv.pdf" download class="btn btn2">Download CV</a> -->
+    </div>
+    <div class="contact-right">
+      <h1 class="sub-title">Feedback!</h1>
+      <!-- a feeback form-->
+      <p>
+        We would love to hear from you. Please fill out the form below
+        and we will get back to you as soon as possible.
+      </p>
+      <form>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="Your Message"
+        ></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+      <!--a java script file -->
+    <script src="script.js"></script>
+</body>
+</html>
